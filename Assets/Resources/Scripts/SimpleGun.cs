@@ -6,6 +6,8 @@ public class SimpleGun : MonoBehaviour
 {
     public Rigidbody Ball;
 
+    public GameObject fireParticle;
+
     public float velocity = 50;
 
     bool fire = false;
@@ -22,6 +24,8 @@ public class SimpleGun : MonoBehaviour
         float triggerRight = OVRInput.Get(OVRInput.RawAxis1D.RIndexTrigger);
         if(triggerRight > 0.9f && fire == false){
              fire = true;
+            GameObject fireParticleObject = Instantiate(fireParticle, transform.position, transform.rotation);
+            Destroy(fireParticleObject.gameObject, 2);
              Rigidbody clone = Instantiate(Ball, transform.position, transform.rotation) as Rigidbody;
              clone.velocity = transform.TransformDirection(new Vector3(0,0, velocity));
              Destroy(clone.gameObject, 3);
