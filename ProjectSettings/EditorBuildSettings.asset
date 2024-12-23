@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 5b48c9dc062dc4f76b75850212d8ac15
+  - enabled: 1
+    path: Assets/Scenes/Instrucciones.unity
+    guid: 72d35916dca6540e39cf3f0194721e50
+  - enabled: 1
     path: Assets/Scenes/PrimeraEscena.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: e29885404b5444fee97c74e12999337e
+  - enabled: 1
+    path: Assets/Scenes/GameOverMalo.unity
+    guid: cd7a67e010c0e4bcbb88b8a691177235
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b29b1d4ccb8b94ad29f91de662c4f59b,
       type: 2}

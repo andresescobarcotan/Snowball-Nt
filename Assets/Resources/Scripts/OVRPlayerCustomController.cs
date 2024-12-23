@@ -8,27 +8,27 @@ using UnityEngine.Rendering.UI;
 
 public class OVRPlayerCustomController : MonoBehaviour
 {
-    [SerializeField] private Canvas minimapCanvas;
-
+    [SerializeField] private GameObject leftBigGun;
     [SerializeField] private OVRPlayerController oVRPlayerController;
 
-    [SerializeField] private float runVelocity;
+    [SerializeField] private float runVelocity=0.1f;
 
+    public void ActivateWeapon(){
+        leftBigGun.SetActive(true);
+    }
     private float oldVelocity;
+    private void Start(){
+        leftBigGun.SetActive(false);
+        oldVelocity = oVRPlayerController.Acceleration;
+    }
     private void Update() {
-        if(OVRInput.Get(OVRInput.RawButton.Y)){
-            minimapCanvas.enabled = !minimapCanvas.enabled;
-        }
-        if(OVRInput.Get(OVRInput.RawButton.B)){
-            oVRPlayerController.Jump();
-        }
-        if(OVRInput.Get(OVRInput.RawButton.A)){
-            oldVelocity = oVRPlayerController.Acceleration;
-            oVRPlayerController.Acceleration = runVelocity;
 
-        } else {
-            oVRPlayerController.Acceleration = oldVelocity;
+        if(OVRInput.GetDown(OVRInput.RawButton.RHandTrigger)){
+            oVRPlayerController.Acceleration = runVelocity;
         }
+        if(OVRInput.GetUp(OVRInput.RawButton.RHandTrigger)){
+            oVRPlayerController.Acceleration = oldVelocity;
+        } 
 
     }
 
